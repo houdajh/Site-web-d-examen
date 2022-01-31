@@ -6,7 +6,7 @@
        <%!
 // Basic declarations
 String DRIVER = "com.mysql.jdbc.Driver";
-String URL = "jdbc:mysql://localhost:3306/testezvous";
+String URL = "jdbc:mysql://localhost:3308/testez vous";
 String USERNAME = "root";
 double count;
 String PASSWORD = "";
@@ -24,20 +24,20 @@ try {
 	st = conn.createStatement();  // Create the statement
 	
 	String name = request.getParameter("sname");
-	 String strQuery = "SELECT COUNT(*) FROM utilisateur where role='Etudiant' ";
+	 String strQuery = "SELECT COUNT(*) FROM registertab where role='Etudiant' ";
      ResultSet rs = st.executeQuery(strQuery);
      String Countrow="";
      while(rs.next() ){
      Countrow = rs.getString(1);
      }
-     String SQL = "SELECT * FROM utilisateur limit 10";
+     String SQL = "SELECT * FROM registertab limit 10";
  	rec = st.executeQuery(SQL);
  	
  	
  	Class.forName(DRIVER);  // Allocate the driver class
 	conn =  DriverManager.getConnection(URL, USERNAME, PASSWORD); // Make a connection
 	stProf = conn.createStatement();  
- 	String strQueryProf = "SELECT COUNT(*) FROM utilisateur where role='Professeur' ";
+ 	String strQueryProf = "SELECT COUNT(*) FROM registertab where role='Professeur' ";
  	 ResultSet rsProf = stProf.executeQuery(strQueryProf);
      String CountrowProf="";
      while(rsProf.next() ){
@@ -70,7 +70,7 @@ try {
       try
       {
       Statement stSum=conn.createStatement();
-      String strQuerySum = "SELECT SUM(visit) FROM utilisateur where role='Etudiant'";
+      String strQuerySum = "SELECT SUM(visit) FROM registertab where role='Etudiant'";
       ResultSet rsSum = stSum.executeQuery(strQuerySum);
      
       while(rsSum.next()){
@@ -88,7 +88,7 @@ try {
   try
   {
   Statement stSumPf=conn.createStatement();
-  String strQuerySumPf = "SELECT SUM(visit) FROM utilisateur where role='Professeur'";
+  String strQuerySumPf = "SELECT SUM(visit) FROM registertab where role='Professeur'";
   ResultSet rsSumPf = stSumPf.executeQuery(strQuerySumPf);
  
   while(rsSumPf.next()){
@@ -630,7 +630,7 @@ try {
                         <th
                           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                         >
-                          <%=rec.getString("nom") %>
+                          <%=rec.getString("name") %>
                         </th>
                         <td
                           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"

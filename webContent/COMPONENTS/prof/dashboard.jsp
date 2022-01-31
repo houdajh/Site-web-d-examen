@@ -41,21 +41,7 @@
               href="./index.html"
               >          </a
             >
-            <form
-              class="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3"
-            >
-              <div class="relative flex w-full flex-wrap items-stretch">
-                <span
-                  class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
-                  ><i class="fas fa-search"></i
-                ></span>
-                <input
-                  type="text"
-                  placeholder="Search here..."
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
-                />
-              </div>
-            </form>
+           
             <ul
               class="flex-col md:flex-row list-none items-center hidden md:flex"
             >
@@ -73,6 +59,7 @@
                      List<Certificat> listCertificat =  CertificatDAO2.selectCertificat(email) ;
                      Iterator<Certificat> iter1 = listCertificat.iterator();
                      int nbClic=quizDAO2.CountNBClic(email);
+                     int nbStd=quizDAO2.nbStd();
             		 List<Quiz> listquiz =  quizDAO2.selectQuiz5(email) ;
             		 int nbquiz=listquiz.size();
             		 int nbCert= listCertificat.size();
@@ -161,7 +148,7 @@
                             Nb etudiants
                           </h5>
                           <span class="font-semibold text-xl text-blueGray-700">
-                            <%=nbClic %>
+                            <%=nbStd %>
                           </span>
                         </div>
                         <div class="relative w-auto pl-4 flex-initial">
@@ -284,6 +271,11 @@
                         >
                           Nb questions
                         </th>
+                         <th
+                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                        >
+                          Nb de clique
+                        </th>
                       </tr>
                     </thead>
                     
@@ -317,6 +309,12 @@
                         >
                           
                           8 questiion
+                        </td>
+                         <td
+                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                        >
+                          
+                            <%=nbClic %>
                         </td>
                       </tr>
                        <%} %> 
@@ -387,6 +385,7 @@
                     <tbody>
                   
             		
+            		
                     <% while(iter1.hasNext()){
                     	Certificat cert = iter1.next();
                     	%>
@@ -414,6 +413,8 @@
                         >
                           
                           <%=cert.getEmailuser() %>
+                         
+                          }
                         </td>
                       </tr>
                        <%} %> 

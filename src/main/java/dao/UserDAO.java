@@ -11,16 +11,16 @@ import model.Quiz;
 import model.User;
 
 public class UserDAO {
-	private String jdbcURL = "jdbc:mysql://localhost:3306/testezvous";
+	private String jdbcURL = "jdbc:mysql://localhost:3308/testez vous";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 
-	private static final String INSERT_USERS_SQL = "INSERT INTO utilisateur " + "  (nom, email ,mot_de_passe ,role) VALUES "
+	private static final String INSERT_USERS_SQL = "INSERT INTO registertab " + "  (name, email ,password ,role) VALUES "
 			+ " (?, ?,? ,?);";
-	private static final String select_QuizS_SQL = "SELECT * FROM utilisateur where email =? and mot_de_passe=?";
-	private static final String select_user_SQL = "SELECT nom FROM utilisateur where email =? ";
-	private static final String select_user_SQL1= "SELECT * FROM utilisateur where email =? ";
-	private static final String Is_user_prof = "SELECT * FROM utilisateur where email =? and role=? ";
+	private static final String select_QuizS_SQL = "SELECT * FROM registertab where email =? and password=?";
+	private static final String select_user_SQL = "SELECT nom FROM registertab where email =? ";
+	private static final String select_user_SQL1= "SELECT * FROM registertab where email =? ";
+	private static final String Is_user_prof = "SELECT * FROM registertab where email =? and role=? ";
 
 	
 
@@ -69,7 +69,7 @@ public class UserDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 		    if(rs.next())
 		    {
-		    	User user=new User(rs.getString("nom"),rs.getString("email"),rs.getString("mot_de_passe"),rs.getString("role")) ;
+		    	User user=new User(rs.getString("name"),rs.getString("email"),rs.getString("password"),rs.getString("role")) ;
 		    	return user;
 		    }
 		    else
@@ -115,7 +115,7 @@ public class UserDAO {
 	ResultSet rs = preparedStatement.executeQuery();
     if(rs.next())
     {
-    	User user=new User(rs.getString("nom"),rs.getString("email"),rs.getString("mot_de_passe"),rs.getString("role")) ;
+    	User user=new User(rs.getString("name"),rs.getString("email"),rs.getString("password"),rs.getString("role")) ;
     	return user;
     }
    

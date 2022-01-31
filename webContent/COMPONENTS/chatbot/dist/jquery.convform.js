@@ -259,12 +259,12 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
         $(this).addClass('conv-form-wrapper');
 
         var parameters = $.extend(true, {}, {
-            placeHolder : 'Type Here',
+            placeHolder : 'Réponse',
             typeInputUi : 'textarea',
             timeOutFirstQuestion : 1200,
             buttonClassStyle : 'icon2-arrow',
             selectInputStyle: 'show',
-            selectInputDisabledText: 'Select an option',
+            selectInputDisabledText: 'Choisir ta reponse',
             eventList : {
                 onSubmitForm : function(convState) {
                     console.log('completed');

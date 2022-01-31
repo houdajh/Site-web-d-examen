@@ -409,13 +409,13 @@ footer button.show{
     System.out.println(id);
          
     %>
-        <div class="info-title"><span>Quelques règles de ce quiz</span></div>
+        <div class="info-title"><span>Quelques regles de ce quiz</span></div>
         <div class="info-list">
             <div class="info">1.Vous n'aurez que <span>15 secondes</span> pour chaque question.</div>
-            <div class="info">2. Une fois que vous avez sélectionné votre réponse, elle ne peut pas être annulée.</div>
-            <div class="info">3. Vous ne pouvez sélectionner aucune option une fois que le temps s'est écoulé.</div>
+            <div class="info">2. Une fois que vous avez selectionne votre reponse, elle ne peut pas etre annulee.</div>
+            <div class="info">3. Vous ne pouvez selectionner aucune option une fois que le temps s'est ecoule.</div>
             <div class="info">4. Vous ne pouvez pas quitter le Quiz pendant que vous jouez.</div>
-            <div class="info">5. Vous obtiendrez des points sur la base de vos bonnes réponses.</div>
+            <div class="info">5. Vous obtiendrez des points sur la base de vos bonnes reponses.</div>
         </div>
         <div class="buttons">
             <button class="quit">Quitter Quiz</button>

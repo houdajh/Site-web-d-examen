@@ -324,7 +324,7 @@
                     <%!
 // Basic declarations
 String DRIVER = "com.mysql.jdbc.Driver";
-String URL = "jdbc:mysql://localhost:3306/testezvous";
+String URL = "jdbc:mysql://localhost:3308/testez vous";
 String USERNAME = "root";
 String PASSWORD = "";
 java.sql.Connection conn;
@@ -343,7 +343,7 @@ try {
 
   
 	
-	String SQL = "SELECT * FROM utilisateur where role= 'Professeur'";
+	String SQL = "SELECT * FROM registertab where role= 'Professeur'";
 	rec = st.executeQuery(SQL);
 %>
 <table
@@ -381,7 +381,7 @@ try {
                         <th
                           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                         >
-                          <%=rec.getString("nom") %>
+                          <%=rec.getString("name") %>
                         </th>
                         <td
                           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"

@@ -69,7 +69,7 @@ public void init() {
 		HttpSession ses= request.getSession(true);
 		String email=(String) ses.getAttribute("email");
 		System.out.println("ha huwa email"+email);
-		String nom=(String) ses.getAttribute("nom");
+		String nom=(String) ses.getAttribute("name");
 		System.out.println("ha huwa email"+ nom);
 		int x1=0;
 		Quiz newQuiz = new Quiz(sujet, desc,niveau,email,x1);

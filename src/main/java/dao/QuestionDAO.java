@@ -12,7 +12,7 @@ import model.Question;
 import model.Quiz;
 
 public class QuestionDAO {
-	private String jdbcURL = "jdbc:mysql://localhost:3306/testezvous";
+	private String jdbcURL = "jdbc:mysql://localhost:3308/testez vous";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 

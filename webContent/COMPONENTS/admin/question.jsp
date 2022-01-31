@@ -5,7 +5,7 @@
   String id=request.getParameter("id");
      int l=1;
      String DRIVER = "com.mysql.jdbc.Driver";
-     String URL = "jdbc:mysql://localhost:3306/testezvous";
+     String URL = "jdbc:mysql://localhost:3308/testez vous";
      String USERNAME = "root";
      String PASSWORD = "";
   %>

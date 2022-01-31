@@ -13,7 +13,7 @@ import model.Quiz;
 
 
 public class CertificatDAO {
-	private String jdbcURL = "jdbc:mysql://localhost:3306/testezvous";
+	private String jdbcURL = "jdbc:mysql://localhost:3308/testez vous";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 

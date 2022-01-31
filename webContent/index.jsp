@@ -22,6 +22,15 @@
 
 </head>
 <style>
+#fixedbutton {
+    position: fixed;
+    bottom: 560px;
+    right: 1000px; 
+}
+.card-image {
+  width: 290px;
+  height: 200px
+}
 .xx {
   font-family: 'Noto Sans JP', sans-serif;
   background-color: #fef8f8;
@@ -29,7 +38,6 @@
    --surface-color: #fff;
   --curve: 40;
 }
-
 .cards1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -40,7 +48,6 @@
   
   
 }
-
 .card1 {
   position: relative;
   display: block;
@@ -49,14 +56,12 @@
   overflow: hidden;
   text-decoration: none;
  width:80%;
- height:150%;
+ height:170%;
 }
-
 .card__image1 {      
-  width: 100%;
+  width: 60%;
   height: 60%;
 }
-
 .card__overlay1 {
   position: absolute;
   bottom: 0;
@@ -68,11 +73,9 @@
   transform: translateY(100%);
   transition: .2s ease-in-out;
 }
-
 .card1:hover .card__overlay1 {
   transform: translateY(0);
 }
-
 .card__header1 {
   position: relative;
   display: flex;
@@ -84,7 +87,6 @@
   transform: translateY(-100%);
   transition: .2s ease-in-out;
 }
-
 .card__arc1 {
   width: 80px;
   height: 80px;
@@ -93,29 +95,24 @@
   right: 0;      
   z-index: 1;
 }
-
 .card__arc1 path {
   fill: var(--surface-color);
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }       
-
 .card1:hover .card__header1 {
   transform: translateY(0);
 }
-
 .card__thumb1 {
   flex-shrink: 0;
   width: 50px;
   height: 50px;      
   border-radius: 50%;      
 }
-
 .card__title1 {
   font-size: 2em;
   margin: 0 0 .3em;
   color: black;
 }
-
 .card__tagline1 {
   display: block;
   margin: 1em 0;
@@ -123,12 +120,10 @@
   font-size: .8em; 
   color: black;  
 }
-
 .card__status1 {
   font-size: 1em;
   color: #696969;
 }
-
 .card__description1 {
   padding: 0 2em 2em;
   margin: 0;
@@ -139,11 +134,36 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+
+.fixed-btn{
+  position: fixed;
+  bottom: 10%;
+  right: 3%;
+  width: 180px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.fixed-btn p{
+  text-transform: uppercase;
+  font-family: arial;
+  font-weight: 900;
+  color: #fff;
+}
+
+.fixed-btn:active{
+  box-shadow: 0  0;
+}
 </style>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
     <!-- MENU BAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
+   
         <div class="container">
 
             <a class="navbar-brand" href="#homel">TESTEZ VOUS</a>
@@ -189,10 +209,15 @@
                         <a href="COMPONENTS/prof/dashboard.jsp" class="nav-link smoothScroll">Dashboard</a>
                     </li>
                     <%} else{%>
+                     <%
+		if(session.getAttribute("email")!=null){
+																					
+		%>
                    
                      <li class="nav-item">
                         <a href="COMPONENTS/etudiant/profile.jsp" class="nav-link smoothScroll">Profile</a>
                     </li>
+                    <%} %>
                     <%} %>
                 </ul>
 
@@ -263,8 +288,12 @@
 
                     <p data-aos="fade-up" data-aos-delay="200">TESTEZ VOUS est une plateforme qui vous permet de tester votre connaissances dans
                     le domaine du developpement en passant des quiz de niveaux differents .</p>
-
+					  <%
+		if(session.getAttribute("email")==null){
+																					
+		%>
                     <a href="COMPONENTS/register.jsp" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" >Devenir un membre</a>
+              <%} %>
                 </div>
 
                 <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
@@ -295,9 +324,15 @@
                             <img src="images/team/prof.jpg" class="img-fluid" alt="Trainer">
                                 <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Professeurs</h2>
 
-                                <p data-aos="fade-up" data-aos-delay="400">You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites.</p>
+                                <p data-aos="fade-up" data-aos-delay="400">
+                                Nos Professeurs peuvent visualiser les statistiques de ces étudiants.
+                                Il peut aussi créer des quiz dans différents thèmes de développement et pour différents niveaux.
+                                </p>
 
-                                <p data-aos="fade-up" data-aos-delay="500">If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">TESTEZ VOUS</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
+                                <p data-aos="fade-up" data-aos-delay="500">Si vous avez des questions à propos de 
+                                <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">TESTEZ VOUS</a>,
+                                 Vous pouvez nous<a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">
+                                 contacter</a> MERCI.</p>
 
                             </div>
 
@@ -305,10 +340,16 @@
                             <img src="images/team/etudiant.jpg" class="img-fluid" alt="Trainer">
                                <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Etudiants</h2>
 
-                                <p data-aos="fade-up" data-aos-delay="400">You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites.</p>
+                                <p data-aos="fade-up" data-aos-delay="400">
+                                L'étudiant peut choisir le quiz qu'il veut passer
+                                 ou bien dialoguer avec un chatbot pour facilité la recherche aprés l'évaluation de leur niveau.
+                                 Si le quiz est achevé avec succées sans triche, le sytème offre un certificat,
+                                 sinon l'étudiant repasse le quiz .</p>
 
-                                <p data-aos="fade-up" data-aos-delay="500">If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">TESTEZ VOUS</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
-
+                               <p data-aos="fade-up" data-aos-delay="500">Si vous avez des questions à propos de 
+                                <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">TESTEZ VOUS</a>,
+                                 Vous pouvez nous<a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">
+                                 contacter</a> MERCI.</p>
                             </div>
                             </div>
 
@@ -316,9 +357,10 @@
 
                     </div>
                </div>
+               
      </section>
 
-
+ 
      <!-- CLASS -->
      <section class="" id="class">
       <h2 data-aos="fade-up" data-aos-delay="200" style="text-align:center;">Nos quiz</h2>
@@ -336,7 +378,6 @@
                     	int id=quiz.getId();
                     	%>
   <li>
-    <a href="<%= request.getContextPath() %>/QuestionServlet?id=<%=quiz.getId()%>"  class="card1">
      <% 
                      
                  
@@ -344,37 +385,54 @@
             		
             		%>
     
-      <% if(quiz.getSujet().equals("JAVA")){ %>                  
-          <img class="card__image1" src="https://www.malekal.com/wp-content/uploads/Java_logo.jpg" alt="" />
-          <%} %>
-          
-          
-          <% if(quiz.getSujet().equals("php")){ %>                  
-          <img class="card__image1" src="https://wp.lean.fr/wp-content/uploads/2021/01/icon.php_.png" alt="" />
-          <%} %>
-          
-          <% if(quiz.getSujet().equalsIgnoreCase("python")){ %>                  
-          <img class="card__image1" src="https://www.developpez.net/forums/attachments/p597954d1/a/a/a" alt="" />
-          <%} %>
-          
-          <% if(quiz.getSujet().equals("JS")){ %>                  
-          <img class="card__image1" src="http://moralogiq.fr/wp-content/themes/moralogiq/images/logo/techno-js.png" alt="" />
-          <%} %>
-      <div class="card__overlay1">
-        <div class="card__header1">
-          <svg class="card__arc1" xmlns="http://www.w3.org/2000/svg"><path /></svg>   
+      <% if(quiz.getSujet().equals("java")){ %>   
+      <div class="card" style="width: 18rem;">
+  <img class="card-image card-img-top embed-responsive-item" src="https://www.malekal.com/wp-content/uploads/Java_logo.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=quiz.getSujet() %></h5>
+    <p class="card-text"><%=quiz.getNiveau() %> <br> 8 Questions <br><%=quiz.getDescription() %></p>
+    <a href="<%= request.getContextPath() %>/QuestionServlet?id=<%=quiz.getId()%>" class="btn btn-dark">Commencer</a>
+  </div>
+</div>               
          
-          <div class="card__header-text1">
+          <%} %>
           
-            <h3 class="card__title1"><%=quiz.getSujet() %></h3>
-                       
-            <span class="card__status1"><%=quiz.getNiveau() %></span><br>
-            <span class="card__status1">8 Questions</span>
-          </div>
-        </div>
-        <p class="card__description1"><%=quiz.getDescription() %></p>
-      </div>
-    </a>      
+          
+          <% if(quiz.getSujet().equals("php")){ %>   
+                <div class="card" style="width: 18rem;">
+  <img class="card-image card-img-top embed-responsive-item" class="card-image" src="https://wp.lean.fr/wp-content/uploads/2021/01/icon.php_.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=quiz.getSujet() %></h5>
+    <p class="card-text"><%=quiz.getNiveau() %> <br> 8 Questions <br><%=quiz.getDescription() %></p>
+    <a href="<%= request.getContextPath() %>/QuestionServlet?id=<%=quiz.getId()%>" class="btn btn-dark">Commencer</a>
+  </div>
+</div>     
+          <%} %>
+          
+          <% if(quiz.getSujet().equalsIgnoreCase("python")){ %>        
+                    <div class="card" style="width: 18rem;">
+  <img class="card-image card-img-top embed-responsive-item" class="card-image" src="https://www.developpez.net/forums/attachments/p597954d1/a/a/a" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=quiz.getSujet() %></h5>
+    <p class="card-text"><%=quiz.getNiveau() %> <br> 8 Questions <br><%=quiz.getDescription() %></p>
+    <a href="<%= request.getContextPath() %>/QuestionServlet?id=<%=quiz.getId()%>" class="btn btn-dark">Commencer</a>
+  </div>
+</div>             
+         
+          <%} %>
+          
+          <% if(quiz.getSujet().equals("JS")){ %>       
+                    <div class="card" style="width: 18rem;">
+  <img class="card-image embed-responsive-item"  src="http://moralogiq.fr/wp-content/themes/moralogiq/images/logo/techno-js.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=quiz.getSujet() %></h5>
+    <p class="card-text"><%=quiz.getNiveau() %> <br> 8 Questions <br><%=quiz.getDescription() %></p>
+    <a href="<%= request.getContextPath() %>/QuestionServlet?id=<%=quiz.getId()%>" class="btn btn-dark">Commencer</a>
+  </div>
+</div>              
+          
+          <%} %>
+          
   </li>
    
   <% } %>
@@ -385,27 +443,13 @@
                </div>
      </section>
 
-
-    
-
+<br><br><br><br>
      <!-- CONTACT -->
      <section class="contact section" id="contact">
           <div class="container">
                <div class="row">
 
-                    <div class="ml-auto col-lg-5 col-md-6 col-12">
-                        <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">N'hésitez pas à demander n'importe quoi</h2>
-
-                        <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
-                            <input type="text" class="form-control" name="cf-name" placeholder="Nom">
-
-                            <input type="email" class="form-control" name="cf-email" placeholder="Email">
-
-                            <textarea class="form-control" rows="5" name="cf-message" placeholder="Message"></textarea>
-
-                            <button type="submit" class="form-control" id="submit-button" name="submit">Envoyer message</button>
-                        </form>
-                    </div>
+                   
 
                     <div class="mx-auto mt-4 mt-lg-0 mt-md-0 col-lg-5 col-md-6 col-12">
                         <h2 class="mb-4" data-aos="fade-up" data-aos-delay="600">Où peux-tu <span> nous trouver</span></h2>
@@ -500,7 +544,27 @@
      <script src="js/aos.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
-
+      <%
+		if(session.getAttribute("email")!=null){
+																					
+		%>
+<div  class="fixed-btn">
+<a href="COMPONENTS/chatbot/index.jsp">
+  <img
+                        alt="..."
+                        src="images/chatb.png"
+                        height ="120"
+                        width="120"
+                      />
+                       <br> <br> <br> <br>
+                       
+</a>
+    
+  </div>
+   <%
+		}
+																					
+									%>
 </body>
 
 </html>

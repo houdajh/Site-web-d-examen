@@ -12,7 +12,7 @@ import model.Quiz;
 import model.User;
 
 public class QuizDAO {
-	private String jdbcURL = "jdbc:mysql://localhost:3306/testezvous";
+	private String jdbcURL = "jdbc:mysql://localhost:3308/testez vous";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 
@@ -22,6 +22,7 @@ public class QuizDAO {
 	
 	private static final String select_QuizS_byUser = "SELECT * FROM quiz where emailuser =? ";
 	private static final String select_QuizS_All = "SELECT * FROM quiz  ";
+	private static final String select_std = "SELECT DISTINCT emailuser FROM quiz  ";
 	private static final String select_QuizS_byUser5 = "SELECT * FROM quiz where emailuser =? limit 5 ";
 	private static final String select_Quiz_byId = "SELECT * FROM quiz where id =? ";
 	private static final String delete_quiz_sql = "DELETE FROM quiz where id = ?";
@@ -63,6 +64,25 @@ public class QuizDAO {
 			printSQLException(e);
 		}
 	}
+	
+	public int nbStd() throws SQLException {
+		int s=0;
+		// try-with-resource statement will auto close the connection.
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(select_std)) {
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+			 s =+1;
+			 System.out.println(preparedStatement);
+			}
+		
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return s; 
+	}
+	
+	
 	public int searchQuiz(String sujet,String Desc) throws SQLException {
 		System.out.println(INSERT_USERS_SQL);
 		int id=0;

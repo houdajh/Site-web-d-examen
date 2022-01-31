@@ -5,7 +5,7 @@
       <%!
 // Basic declarations
 String DRIVER = "com.mysql.jdbc.Driver";
-String URL = "jdbc:mysql://localhost:3306/testezvous";
+String URL = "jdbc:mysql://localhost:3308/testez vous";
 String USERNAME = "root";
 String PASSWORD = "";
 java.sql.Connection conn1,conn2;
@@ -18,7 +18,7 @@ String id=request.getParameter("id");
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testezvous");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/testezvous");
 Statement st=conn.createStatement();
 Statement st1=conn.createStatement();
 int i=st.executeUpdate("DELETE FROM quiz WHERE id="+id);

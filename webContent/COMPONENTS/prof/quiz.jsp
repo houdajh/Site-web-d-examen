@@ -21,9 +21,9 @@
 <body>
  <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-<%@ include file="navbar.jsp" %>
-<br><br><br><br><br><br><br>
-<div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
+     <%@ include file="navbar.jsp"%>
+<div class="relative bg-teal-200 md:pt-32 pb-32 pt-12">
+<br><br>
  <div class="px-40 md:px-10 mx-auto w-full -m-24">
           <div class="flex flex-wrap">
             <div class="w-full lg:w-8/12 px-4">
@@ -94,7 +94,7 @@
                       
                      
                      <button
-                      class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      class="bg-teal-200 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       <input type="submit" value="Submit" />
                     >
                      ajouter

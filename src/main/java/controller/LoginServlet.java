@@ -1,5 +1,4 @@
 package controller;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -47,12 +46,15 @@ public class LoginServlet extends HttpServlet {
 	    UserDAO UserDAO2 = new UserDAO();
 		try {
 			User user =UserDAO2.se_connecter(email,pass);
+			if(user!=null) {
 			HttpSession ses =request.getSession();
 	    	ses.setAttribute("email", email);
 	    	ses.setAttribute("nom", user.getNom());
 	    	System.out.println(ses.getAttribute("email"));
 	    	response.sendRedirect("index.jsp");
-		    
+			}else {
+				response.sendRedirect("COMPONENTS/login.jsp");
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
